@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Fahri Portfolio</title>
 
@@ -20,9 +20,80 @@
     }
 
     body{
-      background:#050816;
+      background:linear-gradient(to bottom,#050505,#140000,#220000);
       color:white;
       overflow-x:hidden;
+      position:relative;
+    }
+
+    /* ANIMATED BACKGROUND LINES */
+
+    .lines{
+      position:fixed;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      overflow:hidden;
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    .lines span{
+      position:absolute;
+      width:2px;
+      height:100%;
+      background:linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255,0,0,.8),
+      transparent
+      );
+
+      animation:lineMove 8s linear infinite;
+    }
+
+    .lines span:nth-child(1){
+      left:10%;
+      animation-delay:0s;
+    }
+
+    .lines span:nth-child(2){
+      left:30%;
+      animation-delay:2s;
+    }
+
+    .lines span:nth-child(3){
+      left:50%;
+      animation-delay:4s;
+    }
+
+    .lines span:nth-child(4){
+      left:70%;
+      animation-delay:1s;
+    }
+
+    .lines span:nth-child(5){
+      left:90%;
+      animation-delay:3s;
+    }
+
+    @keyframes lineMove{
+
+      0%{
+        transform:translateY(-100%);
+        opacity:0;
+      }
+
+      50%{
+        opacity:1;
+      }
+
+      100%{
+        transform:translateY(100%);
+        opacity:0;
+      }
+
     }
 
     /* SCROLLBAR */
@@ -32,20 +103,20 @@
     }
 
     ::-webkit-scrollbar-thumb{
-      background:#3b82f6;
+      background:#ff2d55;
       border-radius:20px;
     }
 
-    /* BACKGROUND */
+    /* BACKGROUND GLOW */
 
     body::before{
       content:'';
       position:fixed;
       width:600px;
       height:600px;
-      background:#2563eb;
+      background:#ff2d55;
       filter:blur(180px);
-      opacity:.18;
+      opacity:.15;
       border-radius:50%;
       top:-200px;
       right:-200px;
@@ -57,9 +128,11 @@
       0%{
         transform:scale(1);
       }
+
       50%{
         transform:scale(1.2);
       }
+
       100%{
         transform:scale(1);
       }
@@ -83,10 +156,10 @@
     }
 
     .logo{
-      font-size:2rem;
+      font-size:1.4rem;
       font-weight:800;
-      color:#60a5fa;
-      text-shadow:0 0 20px #60a5fa;
+      color:white;
+      letter-spacing:2px;
     }
 
     .nav-links{
@@ -103,7 +176,7 @@
     }
 
     .nav-links a:hover{
-      color:#60a5fa;
+      color:#ff2d55;
     }
 
     .menu{
@@ -120,7 +193,7 @@
       right:-320px;
       width:320px;
       height:100vh;
-      background:#081120;
+      background:#090909;
       padding:100px 35px;
       transition:.5s;
       z-index:2000;
@@ -141,7 +214,7 @@
     }
 
     .sidebar a:hover{
-      color:#60a5fa;
+      color:#ff2d55;
       transform:translateX(10px);
     }
 
@@ -172,10 +245,12 @@
       border-radius:40px;
       background:rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.08);
-      backdrop-filter:blur(14px);
-      position:relative;
+      backdrop-filter:blur(16px);
       overflow:hidden;
-      box-shadow:0 0 40px rgba(37,99,235,.15);
+      position:relative;
+      box-shadow:
+      0 0 40px rgba(255,0,0,.15),
+      0 0 60px rgba(0,102,255,.08);
     }
 
     .id-card::before{
@@ -183,9 +258,9 @@
       position:absolute;
       width:400px;
       height:400px;
-      background:#2563eb;
+      background:#ff2d55;
       filter:blur(140px);
-      opacity:.18;
+      opacity:.15;
       border-radius:50%;
       right:-100px;
       top:-100px;
@@ -196,21 +271,27 @@
       height:420px;
       object-fit:cover;
       border-radius:30px;
-      border:4px solid #60a5fa;
-      box-shadow:0 0 35px rgba(59,130,246,.5);
+      border:4px solid #ff2d55;
+      box-shadow:
+      0 0 30px #ff2d55,
+      0 0 50px #0066ff;
       animation:float 4s ease-in-out infinite;
     }
 
     @keyframes float{
+
       0%{
         transform:translateY(0);
       }
+
       50%{
         transform:translateY(-20px);
       }
+
       100%{
         transform:translateY(0);
       }
+
     }
 
     .card-right{
@@ -221,22 +302,33 @@
     .card-right h1{
       font-size:4rem;
       line-height:1.1;
-      margin-bottom:15px;
+      margin-bottom:20px;
     }
 
-    .card-right span{
-      color:#60a5fa;
-      text-shadow:0 0 20px #60a5fa;
+    .red{
+      color:#ff2d55;
+      text-shadow:0 0 20px #ff2d55;
+    }
+
+    .white{
+      color:white;
+      text-shadow:0 0 20px white;
+    }
+
+    .blue{
+      color:#4da6ff;
+      text-shadow:0 0 20px #4da6ff;
     }
 
     .card-right h3{
-      color:#93c5fd;
+      color:#4da6ff;
       margin-bottom:20px;
+      letter-spacing:2px;
     }
 
     .card-right p{
       line-height:1.9;
-      color:#cbd5e1;
+      color:#d1d5db;
       margin-bottom:30px;
     }
 
@@ -253,25 +345,25 @@
     }
 
     .card-info b{
-      color:#60a5fa;
+      color:#ff2d55;
       margin-bottom:5px;
     }
 
     .hero-btn{
       padding:16px 35px;
       border-radius:50px;
-      background:#2563eb;
+      background:#ff2d55;
       color:white;
       text-decoration:none;
       font-weight:600;
       transition:.4s;
       display:inline-block;
-      box-shadow:0 0 30px rgba(37,99,235,.4);
+      box-shadow:0 0 30px rgba(255,0,0,.4);
     }
 
     .hero-btn:hover{
       transform:translateY(-8px);
-      background:#3b82f6;
+      background:#ff1744;
     }
 
     /* TITLE */
@@ -280,8 +372,8 @@
       text-align:center;
       font-size:3rem;
       margin-bottom:60px;
-      color:#60a5fa;
-      text-shadow:0 0 20px #60a5fa;
+      color:#ff2d55;
+      text-shadow:0 0 20px #ff2d55;
     }
 
     /* GRID */
@@ -305,7 +397,9 @@
 
     .card:hover{
       transform:translateY(-10px) scale(1.02);
-      box-shadow:0 0 35px rgba(59,130,246,.35);
+      box-shadow:
+      0 0 35px rgba(255,0,0,.25),
+      0 0 50px rgba(0,102,255,.15);
     }
 
     .card img{
@@ -319,14 +413,14 @@
     }
 
     .content h3{
-      color:#60a5fa;
+      color:#ff2d55;
       margin-bottom:12px;
       font-size:1.4rem;
     }
 
     .content p{
       line-height:1.8;
-      color:#cbd5e1;
+      color:#d1d5db;
     }
 
     /* CONTACT */
@@ -348,25 +442,46 @@
       line-height:1.8;
     }
 
+    .contact a{
+      color:white;
+      text-decoration:none;
+    }
+
+    .contact a:hover{
+      color:#ff2d55;
+    }
+
     /* FOOTER */
 
     footer{
       padding:35px;
       text-align:center;
-      color:#94a3b8;
+      color:#9ca3af;
     }
 
     /* SCROLL ANIMATION */
 
     .fade{
       opacity:0;
-      transform:translateY(50px);
-      transition:1s;
+      transform:
+      scale(.7)
+      rotate(8deg)
+      translateY(120px);
+
+      filter:blur(10px);
+
+      transition:1.2s;
     }
 
     .fade.show{
       opacity:1;
-      transform:translateY(0);
+
+      transform:
+      scale(1)
+      rotate(0deg)
+      translateY(0);
+
+      filter:blur(0);
     }
 
     /* MOBILE */
@@ -393,7 +508,7 @@
       }
 
       .card-right h1{
-        font-size:2.5rem;
+        font-size:2.4rem;
       }
 
       .card-info{
@@ -407,11 +522,25 @@
 
 <body>
 
+<!-- BACKGROUND LINES -->
+
+<div class="lines">
+
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+
+</div>
+
 <!-- NAVBAR -->
 
 <nav>
 
-  <div class="logo">FAHRI.</div>
+  <div class="logo">
+    FAHRI ANDRIAN SAPUTRA
+  </div>
 
   <ul class="nav-links">
 
@@ -437,9 +566,9 @@
 
   <br><br>
 
-  <p style="line-height:1.8;color:#94a3b8;">
-    Website portfolio modern dengan tampilan cinematic,
-    glassmorphism, neon effect, dan smooth animation.
+  <p style="line-height:1.8;color:#9ca3af;">
+    Website portfolio cinematic dengan
+    neon merah biru dan animasi modern.
   </p>
 
 </div>
@@ -450,23 +579,31 @@
 
   <div class="id-card">
 
-    <!-- LEFT -->
-
     <div class="card-left">
 
       <img src="lv_0_20260510163320.jpg" alt="Foto Fahri">
 
     </div>
 
-    <!-- RIGHT -->
-
     <div class="card-right">
 
       <h1>
-        FAHRI <span>ANDRIAN</span>
+
+        <span class="red">
+          FAHRI
+        </span>
+
+        <span class="white">
+          ANDRIAN
+        </span>
+
+        <span class="blue">
+          SAPUTRA
+        </span>
+
       </h1>
 
-      <h3>Digital Business Student</h3>
+      <h3>JURUSAN BISNIS DIGITAL</h3>
 
       <p>
         Fresh graduate SMK jurusan Bisnis Digital
@@ -478,13 +615,23 @@
       <div class="card-info">
 
         <div>
+
           <b>Email</b>
-          <span>fahriiandriansaputra@gmail.com</span>
+
+          <span>
+            fahriiandriansaputra@gmail.com
+          </span>
+
         </div>
 
         <div>
+
           <b>Phone</b>
-          <span>+6287895917725</span>
+
+          <span>
+            +6287895917725
+          </span>
+
         </div>
 
       </div>
@@ -503,11 +650,11 @@
 
 <section class="fade" id="portfolio">
 
-  <h2 class="title">Portfolio</h2>
+  <h2 class="title">
+    Portfolio
+  </h2>
 
   <div class="grid">
-
-    <!-- CV -->
 
     <div class="card">
 
@@ -526,8 +673,6 @@
 
     </div>
 
-    <!-- EDITING -->
-
     <div class="card">
 
       <img src="Proyek Baru [7F0C44F].png">
@@ -544,8 +689,6 @@
       </div>
 
     </div>
-
-    <!-- PKL -->
 
     <div class="card">
 
@@ -572,7 +715,9 @@
 
 <section class="fade" id="project">
 
-  <h2 class="title">Project Website</h2>
+  <h2 class="title">
+    Project Website
+  </h2>
 
   <div class="grid">
 
@@ -585,7 +730,7 @@
         <p>
           Website portfolio modern menggunakan
           HTML, CSS, dan JavaScript dengan
-          tampilan cinematic 16:9.
+          tampilan cinematic.
         </p>
 
       </div>
@@ -615,13 +760,13 @@
 
       <div class="content">
 
-        <h3>Teknologi</h3>
+        <h3>Dokumentasi Website</h3>
 
         <p>
-          HTML5<br>
-          CSS3<br>
-          JavaScript<br>
-          GitHub Pages
+          Tampilan project website portfolio
+          cinematic dengan efek neon merah biru,
+          glassmorphism,
+          dan animasi modern.
         </p>
 
       </div>
@@ -636,18 +781,34 @@
 
 <section class="fade" id="contact">
 
-  <h2 class="title">Kontak</h2>
+  <h2 class="title">
+    Kontak
+  </h2>
 
   <div class="contact">
 
     <p>
+
       <b>Email</b><br>
-      fahriiandriansaputra@gmail.com
+
+      <a href="mailto:fahriiandriansaputra@gmail.com?subject=Halo Fahri&body=Halo saya ingin menghubungi anda">
+
+        fahriiandriansaputra@gmail.com
+
+      </a>
+
     </p>
 
     <p>
-      <b>Nomor HP</b><br>
-      +6287895917725
+
+      <b>WhatsApp</b><br>
+
+      <a href="https://wa.me/6287895917725?text=Halo%20Fahri%20saya%20ingin%20menghubungi%20anda" target="_blank">
+
+        +6287895917725
+
+      </a>
+
     </p>
 
   </div>
@@ -662,11 +823,9 @@
 
 </footer>
 
-<!-- JS -->
+<!-- JAVASCRIPT -->
 
 <script>
-
-  /* SIDEBAR */
 
   function toggleMenu(){
 
@@ -685,8 +844,6 @@
     .remove('active');
 
   }
-
-  /* SCROLL ANIMATION */
 
   const fades =
   document.querySelectorAll('.fade');
